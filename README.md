@@ -1,7 +1,14 @@
 # CML.MongoDB
-MongoDB工具类库
+C#封装MongoDB工具类库
 
-### 用例   
+### 什么是MongoDB
+> MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。
+> 在高负载的情况下，添加更多的节点，可以保证服务器性能。
+> MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。
+> MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。
+### MongoDB安装
+  这里是详细的安装说明(http://www.cnblogs.com/lzrabbit/p/3682510.html) 
+### 用例   
 -----------------------------------  
     //实例化对象 类名保存为MongoDB表名称
     MongoDBUtil<PlayerEntity> mgdbUtil = new MongoDBUtil<PlayerEntity>();
