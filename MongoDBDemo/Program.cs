@@ -16,11 +16,26 @@ namespace MongoDBDemo
     {
         static void Main(string[] args)
         {
+            //实例化对象 类名保存为MongoDB数据库名称
             MongoDBUtil<PlayerEntity> mgdbUtil = new MongoDBUtil<PlayerEntity>();
+            ////清空数据
             mgdbUtil.DeleteAll();
+            ////插入一条数据
+            //PlayerEntity t = new PlayerEntity() { NId = 1, Name = "曾城", Birthday = DateTime.Parse("1900-1-1"), CountryName = "中国", Club = "广州恒大", Position = "GK" };
+            //mgdbUtil.Insert(t);
+            ////更新一条数据
+            //PlayerEntity t2 = new PlayerEntity() { NId = 1, Name = "曾城update", Birthday = DateTime.Now, CountryName = "中国", Club = "广州恒大", Position = "GK" };
+            //mgdbUtil.Update(t2, s => s.NId == 1);
+            ////查询一条数据
+            //var m = mgdbUtil.GetEntity(s => s.NId == 1);
+            //Console.WriteLine(JsonUtil.Serialize(m));
+            ////删除一条数据
+            //mgdbUtil.Delete(s => s.NId == 1);
+
+            #region
+            int cnt = 10000;
             double s1 = StopWatchUtil.CalMilSeconds(() =>
             {
-                int cnt = 1000;
                 for (int i = 0; i < cnt; i++)
                 {
                     PlayerEntity t = new PlayerEntity() { NId = i, Name = "曾城" + i.ToString(), Birthday = DateTime.Parse("1900-1-1"), CountryName = "中国", Club = "广州恒大", Position = "GK" };
@@ -31,7 +46,6 @@ namespace MongoDBDemo
 
             double s3 = StopWatchUtil.CalMilSeconds(() =>
             {
-                int cnt = 1000;
                 for (int i = 0; i < cnt; i++)
                 {
                     PlayerEntity t = new PlayerEntity() { NId = i, Name = "曾城update" + i.ToString(), Birthday = DateTime.Now, CountryName = "中国", Club = "广州恒大", Position = "GK" };
@@ -43,10 +57,10 @@ namespace MongoDBDemo
 
             double s4 = StopWatchUtil.CalMilSeconds(() =>
             {
-                var list = mgdbUtil.ListByCondition(s => 1 == 1, 10);
+                var list = mgdbUtil.ListByCondition(s => 1 == 1, cnt);
 
                 var res = JsonUtil.Serialize(list);
-                Console.WriteLine(res);
+                //Console.WriteLine(res);
             });
             Console.WriteLine("获取数据总共花费{0}ms.", s4);
 
@@ -55,7 +69,7 @@ namespace MongoDBDemo
             //    mgdbUtil.DeleteAll();
             //});
             //Console.WriteLine("清空数据总共花费{0}ms.", s2);
-
+            #endregion
             Console.WriteLine("输入任何键结束……");
             Console.ReadKey();
         }

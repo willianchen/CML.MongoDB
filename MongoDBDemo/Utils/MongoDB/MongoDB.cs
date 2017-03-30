@@ -24,8 +24,6 @@ namespace MongoDBDemo.Utils.MongoDB
 
         private MongoDB()
         {
-            connStr = ConfigUtil.GetValue(SysConstant._MongoDBConnection); 
-            dbName= ConfigUtil.GetValue(SysConstant._MongoDB);
         }
 
         /// <summary>
