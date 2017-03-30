@@ -32,4 +32,5 @@ MongoDB工具类库
 > 例：本地时间（8时区）2017-03-30 15:00：00 MongoDB保存为（格林尼治时间）：ISODate("2017-03-30T07:00:00.000Z")<br/>
 > 相差8小时
 
-### 测试说明
+### 测试结果
+![github](https://raw.githubusercontent.com/willianchen/CML.MongoDB/master/testmgdb.png "github")  
